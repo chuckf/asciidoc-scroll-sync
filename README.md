@@ -1,5 +1,5 @@
 
-# markdown-scroll-sync Atom editor package
+# asciidoc-scroll-sync Atom editor package
 
 Auto-scroll markdown-preview tab to match markdown source.
 
@@ -13,12 +13,12 @@ This is a total rewrite of the package. This version is more accurate and smooth
 
 ### Installation
 
-Run `apm install markdown-scroll-sync` or use the settings page to find the package and install it.
+Run `apm install asciidoc-scroll-sync` or use the settings page to find the package and install it.
 
 ### Usage
 
 There is no atom command or keybinding. There are no config settings.  Just open a markdown file, open the preview, and watch it work.
- 
+
 ### License
 
 Copyright Mark Hahn by MIT license.

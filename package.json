@@ -1,15 +1,15 @@
 {
-  "name": "markdown-scroll-sync",
+  "name": "Asciidoc-scroll-sync",
   "main": "./lib/main",
   "version": "2.1.2",
-  "description": "Auto-scroll markdown-preview tab to match markdown source",
+  "description": "Auto-scroll asciidoc-preview tab to match asciidoc source",
   "repository": "https://github.com/mark-hahn/markdown-scroll-sync",
   "license": "MIT",
   "engines": {
     "atom": ">1.0.0"
   },
   "keywords": [
-    "markdown",
+    "asciidoc",
     "preview",
     "scroll",
     "sync"

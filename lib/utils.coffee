@@ -2,8 +2,8 @@
   lib/utils.coffee
 ###
 
-log = (args...) -> 
-  console.log.apply console, ['markdown-scroll, utils:'].concat args
+log = (args...) ->
+  console.log.apply console, ['asciidoc-scroll, utils:'].concat args
 
 module.exports =
 
@@ -27,7 +27,7 @@ module.exports =
     @scrnBotOfs = @scrnTopOfs + @scrnHeight
     botScrnScrollRow = @editor.clipScreenPosition([9e9, 9e9]).row
     @scrnScrollHgt = (botScrnScrollRow + 1) * @chrHgt
-    
+
     {top: @pvwTopBnd, bottom: pvwBotBnd} = @previewEle.getBoundingClientRect()
     @previewTopOfs = @previewEle.scrollTop
     @previewBotOfs = @previewTopOfs + (pvwBotBnd - @pvwTopBnd)
@@ -39,4 +39,3 @@ module.exports =
     hgt = eleBotBnd - eleTopBnd
     bot = top + hgt
     [top, hgt, bot]
-  
