@@ -7,7 +7,7 @@ log = (args...) ->
 
 SubAtom  = require 'sub-atom'
 
-class MarkdownScrlSync
+class AsciidocScrlSync
 
   activate: (state) ->
     pathUtil     = require 'path'
@@ -16,15 +16,15 @@ class MarkdownScrlSync
 
     if not (prvwPkg = atom.packages.getLoadedPackage 'asciidoc-preview') and
        not (prvwPkg = atom.packages.getLoadedPackage 'asciidoc-preview-plus')
-      log 'markdown preview package not found'
+      log 'asciidoc preview package not found'
       return
 
     viewPath = pathUtil.join prvwPkg.path, 'lib/asciidoc-preview-view'
-    MarkdownPreviewView  = require viewPath
+    AsciidocPreviewView  = require viewPath
 
     @subs.add atom.workspace.observeActivePaneItem (editor) =>
-      isMarkdown = (editor)->
-        for name in ["GitHub Markdown", "CoffeeScript (Literate)"]
+      isAsciidoc = (editor)->
+        for name in ["GitHub Asciidoc", "CoffeeScript (Literate)"]
           return true if editor.getGrammar()?.name is name
         if(path = editor.getPath())
           [fpath, ..., fext] = path.split('.')
@@ -32,10 +32,10 @@ class MarkdownScrlSync
         false
       if editor instanceof TextEditor and
          editor.alive                 and
-         isMarkdown(editor)
+         isAsciidoc(editor)
         @stopTracking()
         for previewView in atom.workspace.getPaneItems()
-          if previewView instanceof MarkdownPreviewView and
+          if previewView instanceof AsciidocPreviewView and
              previewView.editor is editor
             @startTracking editor, previewView
             break
@@ -69,10 +69,10 @@ class MarkdownScrlSync
 mix = (mixinName) ->
   mixin = require './' + mixinName
   for key in Object.keys mixin
-    MarkdownScrlSync.prototype[key] = mixin[key]
+    AsciidocScrlSync.prototype[key] = mixin[key]
 
 mix 'map'
 mix 'scroll'
 mix 'utils'
 
-module.exports = new MarkdownScrlSync
+module.exports = new AsciidocScrlSync
